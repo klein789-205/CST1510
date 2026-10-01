@@ -1,67 +1,39 @@
-"""
-RECORD CHECK  -  my version
-===========================
-
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
-
-Run it:   python template.py
-
-Work through the numbered sections in order. Each one tells you what it must do.
-Delete these instructions as you replace them with your code.
-"""
+# RECORD CHECK  -  AI Data Pipeline Monitor
+# Name  : Klein Warren Giovani MOUBEYI
+# Lane  : AI / Data Science
+# Date  : 2026-10-02
 
 # ==================================================================== INPUT
-# 1. Ask the user for your three values.
-#
-#    - the first is TEXT      (a name, a hostname, an IP)  -> no conversion needed
-#    - the second is a NUMBER (use float(), not int())
-#    - the third  is a NUMBER (use float(), not int())
-#
-#    Remember: input() always gives back text.
+# 1. Ask the user for three values (Dataset name, processed rows, target rows).
 
-label = ""      # : replace with an input() call
-first = 0.0     # : replace with an input() call, converted
-second = 0.0    # : replace with an input() call, converted
+dataset_label = input("Enter dataset name: ")
+rows_processed = float(input("Enter processed rows count: "))
+target_rows = float(input("Enter target rows count: "))
 
 
 # ================================================================== PROCESS
-# 2. Work out what you were NOT given.       [Typical and above]
-#
-#    - difference : how far the first is from the second
-#    - percent    : the first as a percentage of the second
-#
-#    Do not type the answers. Calculate them.
+# 2. Perform automated calculations for pipeline health metrics.
 
-difference = 0.0   # 
-percent = 0.0      # 
+difference = target_rows - rows_processed
+percent = (rows_processed / target_rows) * 100
+
+# Extra calculated metric for Excellent tier:
+# Calculates the missing data percentage to evaluate overall pipeline loss.
+missing_ratio = (difference / target_rows) * 100
 
 
 # =================================================================== OUTPUT
-# 3. Print the report.
-#
-#    Threshold : print the three values you were given, inside a border
-#    Typical   : add difference and percent, 2 decimal places, right-aligned
-#    Excellent : difference always shows its sign, plus one line of your own
-#
-#    Useful:   f"{value:>10.2f}"    right-aligned, 2 decimal places
-#              f"{value:>+10.2f}"   the same, but always shows the sign
+# 3. Print formatted validation report.
 
 print()
-print("=" * 34)
-print(f"  RECORD CHECK  -  {label}")
-print("=" * 34)
+print("=" * 38)
+print(f"  DATASET CHECK  -  {dataset_label}")
+print("=" * 38)
 
-# : your report lines go here
+print(f"Processed Rows  : {rows_processed:>12.2f}")
+print(f"Target Rows     : {target_rows:>12.2f}")
+print(f"Gap to Target   : {difference:>+12.2f}")
+print(f"Completion Rate : {percent:>12.2f} %")
+print(f"Data Loss Ratio : {missing_ratio:>12.2f} %")
 
-print("=" * 34)
-
-
-# ==========================================================================
-# 4. Before you finish:
-#
-#    [ ] Run it three times with different numbers
-#    [ ] Run it with a total of 0 and write the error in your journal
-#    [ ] Check every variable name says what it holds
-#    [ ] Show it to the person next to you
+print("=" * 38)
