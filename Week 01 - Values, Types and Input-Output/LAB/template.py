@@ -1,25 +1,25 @@
-# RECORD CHECK  -  AI Data Pipeline Monitor
+# RECORD CHECK  -  IT System Infrastructure Monitor
 # Name  : Klein Warren Giovani MOUBEYI
-# Lane  : AI / Data Science
+# Lane  : IT
 # Date  : 2026-10-02
 
 # ==================================================================== INPUT
-# 1. Ask the user for three values (Dataset name, processed rows, target rows).
+# 1. Ask the user for three values (System name, processed units, target units).
 
-dataset_label = input("Enter dataset name: ")
-rows_processed = float(input("Enter processed rows count: "))
-target_rows = float(input("Enter target rows count: "))
+system_label = input("Enter system name: ")
+units_processed = float(input("Enter processed units count: "))
+target_units = float(input("Enter target units count: "))
 
 
 # ================================================================== PROCESS
-# 2. Perform automated calculations for pipeline health metrics.
+# 2. Perform automated calculations for infrastructure metrics.
 
-difference = target_rows - rows_processed
-percent = (rows_processed / target_rows) * 100
+difference = target_units - units_processed
+percent = (units_processed / target_units) * 100
 
 # Extra calculated metric for Excellent tier:
-# Calculates the missing data percentage to evaluate overall pipeline loss.
-missing_ratio = (difference / target_rows) * 100
+# Calculates the missing unit percentage to evaluate overall system gap.
+missing_ratio = (difference / target_units) * 100
 
 
 # =================================================================== OUTPUT
@@ -27,13 +27,13 @@ missing_ratio = (difference / target_rows) * 100
 
 print()
 print("=" * 38)
-print(f"  DATASET CHECK  -  {dataset_label}")
+print(f"  SYSTEM CHECK   -  {system_label}")
 print("=" * 38)
 
-print(f"Processed Rows  : {rows_processed:>12.2f}")
-print(f"Target Rows     : {target_rows:>12.2f}")
+print(f"Processed Units : {units_processed:>12.2f}")
+print(f"Target Units    : {target_units:>12.2f}")
 print(f"Gap to Target   : {difference:>+12.2f}")
 print(f"Completion Rate : {percent:>12.2f} %")
-print(f"Data Loss Ratio : {missing_ratio:>12.2f} %")
+print(f"System Loss     : {missing_ratio:>12.2f} %")
 
 print("=" * 38)
